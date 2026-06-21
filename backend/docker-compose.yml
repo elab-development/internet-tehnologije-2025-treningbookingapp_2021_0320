@@ -1,0 +1,55 @@
+
+
+services:
+  # Laravel aplikacija
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: market-app
+    container_name: market-backend
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    volumes:
+      - .:/var/www
+    networks:
+      - market-network
+
+  # Web server (Nginx) da poveže sajt sa browserom
+  webserver:
+    image: nginx:alpine
+    container_name: market-webserver
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www
+    networks:
+      - market-network
+
+  # MySQL Baza podataka
+  db:
+    image: mysql:8.0
+    container_name: market-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: market_db
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - market-db-data:/var/lib/mysql
+    networks:
+      - market-network
+
+networks:
+  market-network:
+    driver: bridge
+
+volumes:
+  market-db-data:
+    driver: local
