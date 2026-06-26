@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+  OWNER
+}
+
+model User {
+  id           String        @id @default(uuid())
+  name         String
+  email        String        @unique
+  password     String
+  role         Role          @default(USER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reservations Reservation[]
+  reviews      Review[]
+}
+
+model Category {
+  id     String  @id @default(uuid())
+  name   String  @unique
+  courts Court[]
+}
+
+model Court {
+  id           String        @id @default(uuid())
+  name         String
+  location     String
+  price        Float
+  imageUrl     String?
+  categoryId   String
+  category     Category      @relation(fields: [categoryId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reservations Reservation[]
+  reviews      Review[]
+}
+
+model Reservation {
+  id        String   @id @default(uuid())
+  date      DateTime
+  startTime String
+  endTime   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  courtId   String
+  court     Court    @relation(fields: [courtId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  courtId   String
+  court     Court    @relation(fields: [courtId], references: [id])
+  createdAt DateTime @default(now())
+}
