@@ -8,7 +8,7 @@ export default function Home() {
         {/* MALI BADGE NA VRHU */}
         <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-emerald-400 bg-emerald-500/10 rounded-full border border-emerald-500/20">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          Aplikacija je uspešno dockerizovana!!!!!!
+          Aplikacija je uspešno dockerizovana!
         </span>
 
         {/* GLAVNI NASLOV */}
