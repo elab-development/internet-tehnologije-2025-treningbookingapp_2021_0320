@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 export default function Button({ text, onClick, variant = "primary", disabled = false }: ButtonProps) {
-  //  zajedničke klase za dugme
+  
   const baseStyles = "w-full sm:w-auto px-6 py-3 font-medium rounded-xl transition-all duration-200 text-center text-sm sm:text-base inline-flex items-center justify-center";
   
   
@@ -18,7 +18,7 @@ export default function Button({ text, onClick, variant = "primary", disabled = 
     danger: "bg-red-500 text-white shadow-lg shadow-red-500/10 hover:bg-red-600 hover:-translate-y-0.5 active:translate-y-0"
   };
 
-  // kada je dugme onemogućeno
+  
   const disabledStyles = "opacity-40 cursor-not-allowed pointer-events-none transform-none shadow-none";
 
   return (
