@@ -37,8 +37,8 @@ export default function RegisterPage() {
 
       alert("Nalog uspešno kreiran!");
       
-    } catch (err: any) {
-      setError(err.message || "Greška pri registraciji.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Greška pri registraciji.");
     } finally {
       setLoading(false);
     }
