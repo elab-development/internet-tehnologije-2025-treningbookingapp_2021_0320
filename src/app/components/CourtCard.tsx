@@ -54,7 +54,7 @@ export default function CourtCard({id, imageUrl, name, sport, price, rating }: C
         <Button
           text = "Rezervisi"
           variant="primary"
-          onClick={() => router.push(`/tereni/${id}`)}
+          onClick={() => router.push(`/courts/${id}`)}
         />
       </div>
     </div>
