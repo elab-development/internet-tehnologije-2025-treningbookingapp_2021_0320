@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import prisma from "../../../../lib/prisma";
+import ReservationForm from "../../components/ReservationForm";
 
 export default async function CourtDetailsPage({
   params,
@@ -93,6 +94,7 @@ export default async function CourtDetailsPage({
           </div>
         )}
       </div>
+      <ReservationForm courtId={court.id} />
     </div>
   );
 }

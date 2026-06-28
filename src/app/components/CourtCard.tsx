@@ -19,7 +19,7 @@ export default function CourtCard({id, imageUrl, name, sport, price, rating }: C
   return (
     <div className="max-w-sm w-full bg-zinc-900/40 backdrop-blur-md rounded-2xl border border-zinc-800/50 overflow-hidden shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1 transition-all duration-300 flex flex-col">
       
-      
+
       <div className="relative h-48 w-full bg-zinc-800 flex items-center justify-center">
         {imageUrl ? (
           <Image
