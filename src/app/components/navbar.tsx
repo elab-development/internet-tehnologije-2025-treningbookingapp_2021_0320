@@ -37,8 +37,7 @@ export default function Navbar() {
           <span>Sport<span className="text-zinc-100">Spot</span></span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-300">
-          <Link href="/tereni" className="hover:text-emerald-400 transition-colors">Tereni</Link>
-          <Link href="/rezervacije" className="hover:text-emerald-400 transition-colors">Moje Rezervacije</Link>
+          <Link href="/reservations" className="hover:text-emerald-400 transition-colors">Moje Rezervacije</Link>
         </nav>
         <div className="flex items-center gap-4">
           {status === "loading" ? null : session ? (

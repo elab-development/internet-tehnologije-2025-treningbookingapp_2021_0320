@@ -23,7 +23,7 @@ export default function Home() {
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link 
-            href="/tereni" 
+            href="/courts" 
             className="w-full sm:w-auto px-8 py-3 bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-0.5 text-base text-center"
           >
             Istraži terene
