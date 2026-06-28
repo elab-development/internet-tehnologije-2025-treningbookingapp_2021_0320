@@ -32,17 +32,17 @@ export default function RootLayout({
     >
       <body className="bg-zinc-950 text-zinc-50 min-h-full flex flex-col font-sans relative overflow-x-hidden">
         
-        <video 
-          autoPlay 
-          loop 
-          muted 
+        {/* <video
+          autoPlay
+          loop
+          muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         >
           <source src="/background-video.mp4" type="video/mp4" />
           Pretraživač ne podržava video.
-        </video>
-        
+        </video> */}
+
 <style dangerouslySetInnerHTML={{__html: `
   /* BRISANJE CRNOG PRAVOUGAONIKA SA SLIKE */
   main div.max-w-3xl {

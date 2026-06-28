@@ -1,7 +1,11 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Button from "./Button";
 
 interface CourtCardProps {
+  id: string;
   imageUrl: string;
   name: string;
   sport: string;
@@ -9,7 +13,9 @@ interface CourtCardProps {
   rating: number;
 }
 
-export default function CourtCard({ imageUrl, name, sport, price, rating }: CourtCardProps) {
+export default function CourtCard({id, imageUrl, name, sport, price, rating }: CourtCardProps) {
+  const router = useRouter();
+
   return (
     <div className="max-w-sm w-full bg-zinc-900/40 backdrop-blur-md rounded-2xl border border-zinc-800/50 overflow-hidden shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1 transition-all duration-300 flex flex-col">
       
@@ -45,6 +51,11 @@ export default function CourtCard({ imageUrl, name, sport, price, rating }: Cour
           <div className="text-zinc-400 text-xs uppercase tracking-wider font-medium">Cena po satu</div>
           <div className="text-base font-extrabold text-emerald-400">{price} RSD</div>
         </div>
+        <Button
+          text = "Rezervisi"
+          variant="primary"
+          onClick={() => router.push(`/tereni/${id}`)}
+        />
       </div>
     </div>
   );
