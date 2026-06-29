@@ -2,6 +2,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import prisma from "../../../../lib/prisma";
 import ReservationForm from "../../components/ReservationForm";
+import WeatherWidget from "@/app/components/WeatherWidget";
+
 
 export default async function CourtDetailsPage({
   params,
@@ -56,6 +58,9 @@ export default async function CourtDetailsPage({
         <div>
           <h1 className="text-3xl font-bold text-zinc-100">{court.name}</h1>
           <p className="text-zinc-400 mt-1">{court.location}</p>
+           <div className="mt-3">
+            <WeatherWidget location={court.location} />
+          </div>
           <div className="flex items-center gap-1 mt-2">
             <span className="text-amber-400">★</span>
             <span className="text-zinc-300 font-medium">{avgRating.toFixed(1)}</span>
